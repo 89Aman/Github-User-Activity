@@ -28,10 +28,9 @@ map_eve = {
 }
 
 
-
-if __name__ == "__main__":
+def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py <username>")
+        print("Usage: github-user-activity <username>")
         sys.exit(1)
 
     uname = sys.argv[1]
@@ -41,3 +40,7 @@ if __name__ == "__main__":
         t = e.get("type")
         if t in map_eve:
             print(f"- {map_eve[t]} {e.get('repo', {}).get('name')}")
+
+
+if __name__ == "__main__":
+    main()
