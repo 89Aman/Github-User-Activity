@@ -8,9 +8,8 @@ A CLI tool to fetch and display GitHub user activity.
 
 ## Run (prebuilt binary)
 
-```bash
-github-user-activity.exe <username>
-```
+- From terminal: `github-user-activity.exe <username>`
+- Double-click: a prompt appears asking for the GitHub username; after activity prints, press Enter to close the window.
 
 ## Run from source (Python)
 

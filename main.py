@@ -29,17 +29,24 @@ map_eve = {
 
 
 def main():
-    if len(sys.argv) < 2:
+    # Accept username from CLI arg or prompt when double-clicked.
+    uname = sys.argv[1] if len(sys.argv) >= 2 else input("Enter GitHub username: ").strip()
+    if not uname:
         print("Usage: github-user-activity <username>")
         sys.exit(1)
 
-    uname = sys.argv[1]
     events = fetch(uname)
+
+    if not events:
+        print(f"No recent public events for {uname}.")
+        return
 
     for e in events:
         t = e.get("type")
         if t in map_eve:
             print(f"- {map_eve[t]} {e.get('repo', {}).get('name')}")
+
+    input("\nPress Enter to exit...")
 
 
 if __name__ == "__main__":
